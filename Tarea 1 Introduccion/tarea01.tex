@@ -1,0 +1,88 @@
+\documentclass[14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{physics}
+\pgfplotsset{compat=1.18}
+\spanishdecimal{.}
+\newcommand{\vspacel}{\vspace{0.5cm}}
+
+\title{Tarea 1: Introducción}
+\author{Nolasco Flores Micael\\
+No. De cuenta: 322132281\\
+\\
+Núñez Hernández Leonardo Daniel\\
+No. De cuenta: 322305122\\
+\\
+UNAM, Facultad de Ciencias\\
+Autómatas y Lenguajes Formales}
+\date{13 de Febrero de 2026}
+
+\begin{document}
+    \maketitle
+
+    \newpage
+    \tableofcontents
+    \newpage
+    
+    \section*{Problema 1}
+    
+    Considera $\Sigma$ como el abecedario del español (incluyendo 'ñ'), responde las siguientes preguntas:
+    
+    \begin{itemize}
+        \item[a)] ¿El idioma español es un subconjunto de $\Sigma^*$?
+        \item[b)] ¿$\Sigma$ pertenece al mundo de los símbolos (P) o al mundo de las estructuras (U)?
+        \item[c)] Considera una secuencia de cadenas del español. ¿Podemos asignar un significado a dicha secuencia si solo tomamos en consideración 
+        $\Sigma$ y $\Sigma^*$?
+    \end{itemize}
+
+    \subsection*{Respuestas}
+
+    \section*{Problema 2}
+
+    Sea $\Sigma^*=\{0,1\}$ y sea $L=\{uv \mid u=00, v\in\Sigma^*\}$. ¿Cómo es $L$? Descríbelo en palabras y también en notación de conjuntos.
+
+    \section*{Problema 3}
+    
+    Considera $\Sigma=\{\alpha,\beta,\gamma\}$ y considera $A$ y $B$ dos lenguajes formales sobre $\Sigma$, con $A=\{\alpha w \mid w\in\Sigma^*\}$ 
+    y $B=\{\beta s \mid s\in\Sigma\}$. ¿Cuántos elementos tiene cada conjunto?
+
+    \section*{Problema 4}    
+    
+    La teoría de categorías estudia (de manera muy simplificada) las relaciones entre objetos, más que los objetos en sí mismos. \\
+    Investiga qué es la teoría de categorías, menciona 3 de sus propiedades y responde: ¿es la teoría de categorías un sistema formal en U o en P? \\
+    Elabora tu respuesta y cita tus fuentes en APA7.
+
+    \section*{Problema 5}
+
+    Sea $\Sigma=\{0,1\}$. Considera el lenguaje formal: $L=\{w\in\Sigma^* \mid w \text{ representa un número par en binario}\}$.
+    
+    \begin{itemize}
+        \item[a)] Describe el lenguaje $L$ con notación de conjuntos.
+        \item[b)] Describe el lenguaje $L^*$ con notación de conjuntos.
+        \item[c)] ¿Qué propiedad sintáctica se pierde al pasar de $L$ a $L^*$?
+    \end{itemize}
+
+    \section*{Problema 6} 
+
+    Demuestra que todo alfabeto de $n>2$ símbolos puede ser representado con un alfabeto binario.
+        
+    \section*{Problema 7} 
+
+    Sean $x,y\in\Sigma^+$. Demuestra que si la concatenación $x\cdot y$ conmuta, es decir: $x\cdot y=y\cdot x$, entonces existe $w\in\Sigma^*$ y 
+    existen $i, j\in\mathbb{Z}^+$ tal que $x=w^i$ y $y=w^j$. \textit{Hint: Usa inducción sobre la longitud de $x\cdot y$.}
+
+\end{document}
