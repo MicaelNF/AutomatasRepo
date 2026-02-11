@@ -35,8 +35,6 @@ Autómatas y Lenguajes Formales}
     \maketitle
 
     \newpage
-    \tableofcontents
-    \newpage
     
     \section*{Problema 1}
     
@@ -51,20 +49,50 @@ Autómatas y Lenguajes Formales}
 
     \subsection*{Respuestas}
 
+    \begin{itemize}
+        \item[a)] ¿El idioma español es un subconjunto de $\Sigma^*$?
+            
+        Si, el idioma español (ignorando los acentos) es un subconjunto del Asterato de Kleene del abecedario del español, en $\Sigma^*$ viven todas las 
+        cadenas finitas que se pueden realizar con el abecedario, algunas de esas cadenas coinciden con las palabras que se usan en el idioma español, 
+        la cadena de longitud 4, hecha con los símbolos ‘h’, ‘o’, ‘l’, ‘a’, es “hola”, la cual coincide con la palabra hola usada en el español.
+        El subconjunto de $\Sigma^*$ que contenga a todas estas cadenas, será el idioma español.
+
+        \item[b)] ¿$\Sigma$ pertenece al mundo de los símbolos (P) o al mundo de las estructuras (U)?
+        
+        (así de rápido) Pertenece al mundo de los símbolos ya que las cadenas no son estructuras, las cadenas son nuestra forma de darle sentido y un 
+        cálculo a U, en el caso del español, el idioma español son el conjunto de cadenas en P, etiquetas perceptibles de las cosas que hay en la 
+        mente de un hablante del español.
+
+        \item[c)] Considera una secuencia de cadenas del español. ¿Podemos asignar un significado a dicha secuencia si solo tomamos en consideración 
+        $\Sigma$ y $\Sigma^*$?
+
+        (así de rápido) Como el idioma español es un conjunto de cadenas, tomar una secuencia de cadenas de este no le asigna ningun significado, ya que
+        los simbolos son diferentes entre si, citando las notas del profesor, "lo que hace a una cosa un símbolo es que es formalmente 
+        (es decir: en su forma) diferente identitariamente de otro", por lo que los símbolos en el alfabeto español ni las cadenas que se forman a partir de ellos 
+        no tienen un significado, es hasta que un ser humano le da un significado a los símbolos y a las cadenas creadas con ellos.
+        
+    \end{itemize}
+
     \section*{Problema 2}
 
-    Sea $\Sigma^*=\{0,1\}$ y sea $L=\{uv \mid u=00, v\in\Sigma^*\}$. ¿Cómo es $L$? Descríbelo en palabras y también en notación de conjuntos.
+    Sea $\Sigma=\{0,1\}$ y sea $L=\{uv \mid u=00, v\in\Sigma^*\}$. ¿Cómo es $\overline{L}$? Descríbelo en palabras y también en notación de conjuntos.
+
+    \subsection*{Respuesta}
 
     \section*{Problema 3}
     
     Considera $\Sigma=\{\alpha,\beta,\gamma\}$ y considera $A$ y $B$ dos lenguajes formales sobre $\Sigma$, con $A=\{\alpha w \mid w\in\Sigma^*\}$ 
     y $B=\{\beta s \mid s\in\Sigma\}$. ¿Cuántos elementos tiene cada conjunto?
 
+    \subsection*{Respuesta}
+
     \section*{Problema 4}    
     
-    La teoría de categorías estudia (de manera muy simplificada) las relaciones entre objetos, más que los objetos en sí mismos. \\
-    Investiga qué es la teoría de categorías, menciona 3 de sus propiedades y responde: ¿es la teoría de categorías un sistema formal en U o en P? \\
-    Elabora tu respuesta y cita tus fuentes en APA7.
+    La teoría de categorías estudia (de manera muy simplificada) las relaciones entre objetos, más que los objetos en sí mismos. Investiga qué es la 
+    teoría de categorías, menciona 3 de sus propiedades y responde: ¿es la teoría de categorías un sistema formal en U o en P? Elabora tu respuesta y 
+    cita tus fuentes en APA7.
+
+    \subsection*{Respuesta}
 
     \section*{Problema 5}
 
@@ -76,13 +104,19 @@ Autómatas y Lenguajes Formales}
         \item[c)] ¿Qué propiedad sintáctica se pierde al pasar de $L$ a $L^*$?
     \end{itemize}
 
+    \subsection*{Respuestas}
+
     \section*{Problema 6} 
 
     Demuestra que todo alfabeto de $n>2$ símbolos puede ser representado con un alfabeto binario.
+
+    \subsection*{Respuesta}
         
     \section*{Problema 7} 
 
     Sean $x,y\in\Sigma^+$. Demuestra que si la concatenación $x\cdot y$ conmuta, es decir: $x\cdot y=y\cdot x$, entonces existe $w\in\Sigma^*$ y 
     existen $i, j\in\mathbb{Z}^+$ tal que $x=w^i$ y $y=w^j$. \textit{Hint: Usa inducción sobre la longitud de $x\cdot y$.}
+
+    \subsection*{Respuesta}
 
 \end{document}
