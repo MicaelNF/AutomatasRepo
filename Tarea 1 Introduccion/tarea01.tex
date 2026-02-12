@@ -18,7 +18,7 @@
 \usepackage{physics}
 \pgfplotsset{compat=1.18}
 \spanishdecimal{.}
-\newcommand{\vspacel}{\vspace{0.5cm}}
+\newcommand{\vspacel}{\vspace{0.5 cm}}
 
 \title{Tarea 1: Introducción}
 \author{Nolasco Flores Micael\\
@@ -43,12 +43,11 @@ Autómatas y Lenguajes Formales}
     \begin{itemize}
         \item[a)] ¿El idioma español es un subconjunto de $\Sigma^*$?
         \item[b)] ¿$\Sigma$ pertenece al mundo de los símbolos (P) o al mundo de las estructuras (U)?
-        \item[c)] Considera una secuencia de cadenas del español. ¿Podemos asignar un significado a dicha secuencia si solo tomamos en consideración 
+        \item[c)] Considera una secuencia de cadenas del español. ¿Podemos asignar un significado a dicha secuencia si solo tomamos en consideración
         $\Sigma$ y $\Sigma^*$?
     \end{itemize}
 
     \subsection*{Respuestas}
-
     \begin{itemize}
         \item[a)] ¿El idioma español es un subconjunto de $\Sigma^*$?
             
@@ -57,11 +56,32 @@ Autómatas y Lenguajes Formales}
         la cadena de longitud 4, hecha con los símbolos ‘h’, ‘o’, ‘l’, ‘a’, es “hola”, la cual coincide con la palabra hola usada en el español.
         El subconjunto de $\Sigma^*$ que contenga a todas estas cadenas, será el idioma español.
 
+        \textbf{Micael}\\
+        Antes de contestar completamente esta pregunta, me surgió una duda: ¿cómo definimos el abecedario español para este problema?
+        Para esto, llegué a dos posibles respuestas.
+
+        La primera es tomar el abecedario como lo conocemos comúnmente, desde la letra `a' hasta la letra `z', incluyendo la `ñ',
+        ya que el problema lo pide. Si tomamos este abecedario, en estricto sentido, el idioma español ortográficamente correcto
+        no es un subconjunto de $\Sigma^*$. Un ejemplo de por qué no lo sería es la palabra ``canción'', ya que esta tiene el símbolo `ó' y,
+        por cómo definimos anteriormente $\Sigma$, no importa cómo combinemos sus elementos, nunca tendremos el símbolo `ó'
+        dentro de él.
+
+        Ahora bien, si decimos que $\Sigma$ contiene todas las acentuaciones del idioma español para todas las letras, entonces el idioma
+        español sí sería un subconjunto de $\Sigma^*$. Básicamente, la respuesta depende de qué es lo que tomamos por ``abecedario del español''
+        y también qué es lo que definimos como ``idioma español'', ya que si no nos importa que sea ortográficamente correcto, podríamos
+        decir que con el primer abecedario que propusimos, el idioma sí sería un subconjunto de $\Sigma^*$.
+
         \item[b)] ¿$\Sigma$ pertenece al mundo de los símbolos (P) o al mundo de las estructuras (U)?
         
         (así de rápido) Pertenece al mundo de los símbolos ya que las cadenas no son estructuras, las cadenas son nuestra forma de darle sentido y un 
         cálculo a U, en el caso del español, el idioma español son el conjunto de cadenas en P, etiquetas perceptibles de las cosas que hay en la 
         mente de un hablante del español.
+
+        \textbf{Micael}\\
+        Leyendo lo que puso mi compañero, pues estoy completamente de acuerdo con que $\Sigma$ pertenece al mundo de los símbolos (P). Ya que en
+        este caso, $\Sigma$ representa el abecedario español lo que es literalmente un alfabeto. Ahora bien La razón por la que no pertenece
+        al mundo de las estructuras (U) es porque, aunque suene redundante, se trata de una colección de símbolos puros sin un significado en
+        específico.
 
         \item[c)] Considera una secuencia de cadenas del español. ¿Podemos asignar un significado a dicha secuencia si solo tomamos en consideración 
         $\Sigma$ y $\Sigma^*$?
@@ -70,7 +90,17 @@ Autómatas y Lenguajes Formales}
         los simbolos son diferentes entre si, citando las notas del profesor, "lo que hace a una cosa un símbolo es que es formalmente 
         (es decir: en su forma) diferente identitariamente de otro", por lo que los símbolos en el alfabeto español ni las cadenas que se forman a partir de ellos 
         no tienen un significado, es hasta que un ser humano le da un significado a los símbolos y a las cadenas creadas con ellos.
-        
+
+        \textbf{Micael}\\
+        La respuesta corta es un no, y lo podemos ver con un ejemplo, así que vamos a tomar la palabra ``saltar''. Esta cadena,
+        lógicamente, no la vamos a encontrar en $\Sigma$, ya que aquí solo vamos a encontrar símbolos puros. Por otro lado, si la
+        buscamos en $\Sigma^*$, seguramente la vamos a encontrar. Ahora bien, una vez que la encontremos, debemos preguntarnos,
+        ¿qué es lo que pasa?
+        Bueno la respuesta es que no pasa nada, ya que esta seguirá siendo una simple cadena compuesta por símbolos
+        sin significado alguno y para que esta palabra realmente represente algo, necesitamos de una interpretación
+        que no está ni en $\Sigma$ ni en $\Sigma^*$, ya que si bien nosotros nos imaginamos directamente a alguien elevándose
+        del suelo, esto es porque nosotros le dimos dicha representación.
+
     \end{itemize}
 
     \section*{Problema 2}
