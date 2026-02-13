@@ -39,67 +39,39 @@ Autómatas y Lenguajes Formales}
     \section*{Problema 1}
     
     Considera $\Sigma$ como el abecedario del español (incluyendo 'ñ'), responde las siguientes preguntas:
-    
-    \begin{itemize}
-        \item[a)] ¿El idioma español es un subconjunto de $\Sigma^*$?
-        \item[b)] ¿$\Sigma$ pertenece al mundo de los símbolos (P) o al mundo de las estructuras (U)?
-        \item[c)] Considera una secuencia de cadenas del español. ¿Podemos asignar un significado a dicha secuencia si solo tomamos en consideración
-        $\Sigma$ y $\Sigma^*$?
-    \end{itemize}
 
     \subsection*{Respuestas}
     \begin{itemize}
-        \item[a)] ¿El idioma español es un subconjunto de $\Sigma^*$?
-            
-        Si, el idioma español (ignorando los acentos) es un subconjunto del Asterato de Kleene del abecedario del español, en $\Sigma^*$ viven todas las 
-        cadenas finitas que se pueden realizar con el abecedario, algunas de esas cadenas coinciden con las palabras que se usan en el idioma español, 
-        la cadena de longitud 4, hecha con los símbolos ‘h’, ‘o’, ‘l’, ‘a’, es “hola”, la cual coincide con la palabra hola usada en el español.
-        El subconjunto de $\Sigma^*$ que contenga a todas estas cadenas, será el idioma español.
+        \item[a)] \textbf{¿El idioma español es un subconjunto de $\Sigma^*$?}
 
-        \textbf{Micael}\\
-        Antes de contestar completamente esta pregunta, me surgió una duda: ¿cómo definimos el abecedario español para este problema?
-        Para esto, llegué a dos posibles respuestas.
+        Antes de contestar completamente esta pregunta, nos surgió una duda: ¿cómo definimos el abecedario español para este problema?
+        Para esto, llegamos a dos posibles respuestas.
 
         La primera es tomar el abecedario como lo conocemos comúnmente, desde la letra `a' hasta la letra `z', incluyendo la `ñ',
         ya que el problema lo pide. Si tomamos este abecedario, en estricto sentido, el idioma español ortográficamente correcto
-        no es un subconjunto de $\Sigma^*$. Un ejemplo de por qué no lo sería es la palabra ``canción'', ya que esta tiene el símbolo `ó' y,
-        por cómo definimos anteriormente $\Sigma$, no importa cómo combinemos sus elementos, nunca tendremos el símbolo `ó'
-        dentro de él.
+        no es un subconjunto de $\Sigma^*$. Recordemos que en $\Sigma^*$ (el Asterato de Kleene) viven todas las cadenas finitas que se 
+        pueden formar con los símbolos de $\Sigma$. Un ejemplo de por qué no sería lo ortográficamente correcto sería es la palabra ``canción'', 
+        ya que esta tiene el símbolo `ó' y, por cómo definimos anteriormente $\Sigma$, nunca tendremos el símbolo `ó' dentro de él.
 
-        Ahora bien, si decimos que $\Sigma$ contiene todas las acentuaciones del idioma español para todas las letras, entonces el idioma
+        Ahora bien, si decimos que $\Sigma$ contiene todas las acentuaciones del idioma español para las vocales, entonces el idioma
         español sí sería un subconjunto de $\Sigma^*$. Básicamente, la respuesta depende de qué es lo que tomamos por ``abecedario del español''
         y también qué es lo que definimos como ``idioma español'', ya que si no nos importa que sea ortográficamente correcto, podríamos
         decir que con el primer abecedario que propusimos, el idioma sí sería un subconjunto de $\Sigma^*$.
 
-        \item[b)] ¿$\Sigma$ pertenece al mundo de los símbolos (P) o al mundo de las estructuras (U)?
+        \item[b)] \textbf{¿$\Sigma$ pertenece al mundo de los símbolos (P) o al mundo de las estructuras (U)?}
         
-        (así de rápido) Pertenece al mundo de los símbolos ya que las cadenas no son estructuras, las cadenas son nuestra forma de darle sentido y un 
-        cálculo a U, en el caso del español, el idioma español son el conjunto de cadenas en P, etiquetas perceptibles de las cosas que hay en la 
-        mente de un hablante del español.
+        Podemos afirmar que $\Sigma$ pertenece al mundo de los símbolos (P) ya que las cadenas no son estructuras, las cadenas son nuestra forma de darle 
+        sentido y representar al mundo de las estructuras (U). En este caso, $\Sigma$ representa el abecedario español lo que es literalmente un alfabeto. Ahora 
+        bien, la razón por la que $\Sigma$ no pertenece a (U) es porque, se trata de una colección de símbolos sin un significado por si mismos.
 
-        \textbf{Micael}\\
-        Leyendo lo que puso mi compañero, pues estoy completamente de acuerdo con que $\Sigma$ pertenece al mundo de los símbolos (P). Ya que en
-        este caso, $\Sigma$ representa el abecedario español lo que es literalmente un alfabeto. Ahora bien La razón por la que no pertenece
-        al mundo de las estructuras (U) es porque, aunque suene redundante, se trata de una colección de símbolos puros sin un significado en
-        específico.
+        \item[c)] \textbf{Considera una secuencia de cadenas del español. ¿Podemos asignar un significado a dicha secuencia si solo tomamos en consideración 
+        $\Sigma$ y $\Sigma^*$?}
 
-        \item[c)] Considera una secuencia de cadenas del español. ¿Podemos asignar un significado a dicha secuencia si solo tomamos en consideración 
-        $\Sigma$ y $\Sigma^*$?
-
-        (así de rápido) Como el idioma español es un conjunto de cadenas, tomar una secuencia de cadenas de este no le asigna ningun significado, ya que
-        los simbolos son diferentes entre si, citando las notas del profesor, "lo que hace a una cosa un símbolo es que es formalmente 
-        (es decir: en su forma) diferente identitariamente de otro", por lo que los símbolos en el alfabeto español ni las cadenas que se forman a partir de ellos 
-        no tienen un significado, es hasta que un ser humano le da un significado a los símbolos y a las cadenas creadas con ellos.
-
-        \textbf{Micael}\\
-        La respuesta corta es un no, y lo podemos ver con un ejemplo, así que vamos a tomar la palabra ``saltar''. Esta cadena,
-        lógicamente, no la vamos a encontrar en $\Sigma$, ya que aquí solo vamos a encontrar símbolos puros. Por otro lado, si la
-        buscamos en $\Sigma^*$, seguramente la vamos a encontrar. Ahora bien, una vez que la encontremos, debemos preguntarnos,
-        ¿qué es lo que pasa?
-        Bueno la respuesta es que no pasa nada, ya que esta seguirá siendo una simple cadena compuesta por símbolos
-        sin significado alguno y para que esta palabra realmente represente algo, necesitamos de una interpretación
-        que no está ni en $\Sigma$ ni en $\Sigma^*$, ya que si bien nosotros nos imaginamos directamente a alguien elevándose
-        del suelo, esto es porque nosotros le dimos dicha representación.
+        No, como el idioma español es un conjunto de cadenas en $\Sigma^*$ (si tomamos el caso que expusimos en el inciso a), esta secuencia de cadenas 
+        no puede estar en $\Sigma$ ya que aquí solo vamos a encontrar símbolos puros. Por otro lado, si la buscamos en $\Sigma^*$, las cadenas que
+        conforman la secuencia si estaran. Pero que las cadenas se encuentren en $\Sigma^*$ no implica que tengan un significado, seguirá siendo una simple 
+        secuencia de cadenas compuesta por símbolos sin significado alguno, es hasta que un agente externo (un ser humano) le da un significado a los símbolos 
+        y a las cadenas creadas con ellos, esta interpretación no está ni en $\Sigma$ ni en $\Sigma^*$.
 
     \end{itemize}
 
@@ -108,14 +80,20 @@ Autómatas y Lenguajes Formales}
     Sea $\Sigma=\{0,1\}$ y sea $L=\{uv \mid u=00, v\in\Sigma^*\}$. ¿Cómo es $\overline{L}$? Descríbelo en palabras y también en notación de conjuntos.
 
     \subsection*{Respuesta}
-    \textbf{Micael}\\
-    Primero vamos a describir a $\overline{L}$ en palabras, así que podemos simplemente decir que son todas las posibles combinaciones
-    de $0$ y $1$ que no empiecen con $00$, incluyendo a $\epsilon$ y al mismo $0$ y $1$. Ahora bien, si lo queremos describir en notación
-    de conjuntos nos quedaría de la siguiente manera:
+
+    Primero vamos a describir a $L$, podemos ver que en $L$ están todas las las posibles combinaciones que están en $\Sigma^*$ que empiezan con 
+    la cadena $u = 00$, por lo que $\overline{L}$ debe de ser lo contrario a esto, todas las cadenas que están en $\Sigma^*$ menos las que empiezan 
+    con la subcadena $00$. En notación de conjuntos $\overline{L}$ es así:
+
     \[
         \overline{L} = \{ w \in \Sigma^* \mid w \textit{ no comienza con } 00 \}
     \]
-    Y si nos damos cuenta, pues es básicamente lo mismo que ya había dicho solo que de una forma más formal.
+
+    o
+    
+    \[
+    \overline{L} = \Sigma^* \setminus \{ 00w \mid w \in \Sigma^* \}
+    \]
 
     \section*{Problema 3}
     
@@ -123,14 +101,17 @@ Autómatas y Lenguajes Formales}
     y $B=\{\beta s \mid s\in\Sigma\}$. ¿Cuántos elementos tiene cada conjunto?
 
     \subsection*{Respuesta}
-    \textbf{Micael}\\
-    Lo primero que podemos notar es que el lenguaje $A$ tiene una cantidad infinita de elementos, esto es debido a que hay una
-    concatenación con $w\in\Sigma^*$ y por definición sabemos que $\Sigma^*$ es un conjunto infinito, ya que contiene todas
-    las posibles combinaciones de los símbolos que haya en $\Sigma$.
 
-    Ahora para el lenguaje $B$, basta con ver que el único componente que varía
-    es $s \in \Sigma$, por lo tanto, la cantidad de elementos de este lenguaje es la misma que la cantidad de elementos
-    de $\Sigma$, así que podemos decir que $B$ tiene tres elementos, ya que son pocos voy a ponerlos:
+    Lo primero que podemos notar es que la cardinalidad de $A$ tiene una cantidad infinita de elementos, debido a que $A$ es el lenguaje que tiene a todas 
+    las cadenas de $\Sigma^*$ tales que empiezan con $\alpha$, como la cardinalidad de $\Sigma^*$ es infinito, la cardinalidad de $A$ tambien es infinito,
+    aunque podríamos decir que la cardinalidad de $A$ representa solo una parte de la cardinalidad de $\Sigma^*$ ya que en $A$ se excluyen las cadenas que 
+    empiezan con $\beta$ y con $\gamma$.
+
+    \vspacel
+
+    Ahora para el lenguaje $B$, basta con ver que el único elemento que varía es $s \in \Sigma$, por lo tanto, la cantidad de elementos de este lenguaje 
+    es la misma que la cantidad de elementos de $\Sigma$, así que $B$ tiene tres elementos, $|B|=3$, el conjunto es:
+    
     \[
         B = \{\beta\alpha, \beta\beta, \beta\gamma\}
     \]
