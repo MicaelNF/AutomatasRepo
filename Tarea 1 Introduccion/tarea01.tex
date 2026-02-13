@@ -180,11 +180,26 @@ Autómatas y Lenguajes Formales}
 
     \subsection*{Respuestas}
     \begin{itemize}
-        \item[a)] Describe el lenguaje $L$ con notación de conjuntos.
+        \item[a)] \textbf{Describe el lenguaje $L$ con notación de conjuntos.}\\
+        Lo primero que hay que recordar es que un número binario es par solo si su último bit es $0$. Por lo tanto, el lenguaje
+        $L$ podemos decir que son todas las de binario que terminan en cero, así que nos quedaría algo así:
+        \[
+            L = \{ w0 \mid w \in \Sigma^* \}
+        \]
 
-        \item[b)] Describe el lenguaje $L^*$ con notación de conjuntos.
+        \item[b)] \textbf{Describe el lenguaje $L^*$ con notación de conjuntos.}\\
+        A ver para este siguiente inciso creo que es algo redundante, porque $L^*$ se supone que
+        representa todas las posibles concatenaciones $L$ y como cada elemento de $L$ termina en $0$, cualquier concatenación de
+        estas también va a terminar en $0$, obviamente con excepción de $\epsilon$, entonces con esto en mente ahora si nos queda lo
+        siguiente:
+        \[
+            L^* = L \cup \{ \epsilon \}
+        \]
 
-        \item[c)] ¿Qué propiedad sintáctica se pierde al pasar de $L$ a $L^*$?
+        \item[c)] \textbf{¿Qué propiedad sintáctica se pierde al pasar de $L$ a $L^*$?}\\
+        En sentido no se pierde ninguna propiedad, ya que técnicamente ambos son iguales, si bien en $L^{*}$ usas los elementos
+        de $L$, en $L$ misma podrías encontrar esa concatenación, ya que también tiene infinitas combinaciones. Por lo tanto
+        no se pierde ninguna propiedad.
     \end{itemize}
 
     \section*{Problema 6} 
