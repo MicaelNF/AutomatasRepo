@@ -202,17 +202,33 @@ Autómatas y Lenguajes Formales}
         no se pierde ninguna propiedad.
     \end{itemize}
 
-    \section*{Problema 6} 
+    \section*{Problema 6}
 
     Demuestra que todo alfabeto de $n>2$ símbolos puede ser representado con un alfabeto binario.
 
     \subsection*{Respuesta}
-        
-    \section*{Problema 7} 
+    Definamos $A = \{a_1, a_2, \dots, a_n\}$ como un alfabeto con $n > 2$ símbolos, ahora para poder demostrar que este puede ser
+    representado mediante el alfabeto binario, vaya $\Sigma = \{0, 1\}$, debemos encontrar una función $f: A \to \Sigma^{n}$ que
+    sea inyectiva.
 
-    Sean $x,y\in\Sigma^+$. Demuestra que si la concatenación $x\cdot y$ conmuta, es decir: $x\cdot y=y\cdot x$, entonces existe $w\in\Sigma^*$ y 
-    existen $i, j\in\mathbb{Z}^+$ tal que $x=w^i$ y $y=w^j$. \textit{Hint: Usa inducción sobre la longitud de $x\cdot y$.}
+    Ahora para poder asegurar que dicha función existe, basta con observar que si utilizamos cadenas de longitud $k$, el número de
+    combinaciones binarias posibles es $2^k$. Como para cualquier $n > 2$ se cumple que $2^n > n$, entonces si decimos que $k = n$,
+    obviamente tendremos suficientes combinaciones para cubrir todos los símbolos de $A$.
 
-    \subsection*{Respuesta}
+    Ahora con todo esto definimos la función $f: A \to \Sigma^n$ de la siguiente forma, a cada símbolo $a_i \in A$ le asignamos una
+    cadena de longitud $n$ que contiene un $1$ en la posición $i$ y ceros en todas las demás, un ejemplo sería así:
 
+    \begin{itemize}
+        \item $f(a_1) = 100\dots0$
+        \item $f(a_2) = 010\dots0$
+        \item[\vdots]
+        \item $f(a_n) = 000\dots1$
+    \end{itemize}
+
+    Con esta construcción podemos garantizar la inyectividad de la función, ya que cada cadena $f(a_i)$ posee un $1$ en una ubicación única.
+    Por lo tanto:
+    \[ \text{Si } i \neq j \implies f(a_i) \neq f(a_j) \]
+
+    Ahora al haber construido una función inyectiva que mapea cada símbolo de un alfabeto arbitrario $A$ a una cadena binaria única, podemos
+    deicr que queda demostrado que cualquier alfabeto de $n$ símbolos con $n > 2$ puede ser representado con el alfabeto binario.
 \end{document}
