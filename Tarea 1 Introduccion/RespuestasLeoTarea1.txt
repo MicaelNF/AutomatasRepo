@@ -1,0 +1,82 @@
+Respuestas Leo Tarea 1
+
+Pregunta 1
+
+Si, el idioma español (ignorando los acentos) es un subconjunto del Asterato de Kleene del abecedario del español, en (sigma estrella) viven todas las 
+cadenas finitas que se pueden realizar con el abecedario, algunas de esas cadenas coinciden con las palabras que se usan en el idioma español, la cadena 
+de longitud 4, hecha con los símbolos ‘h’, ‘o’, ‘l’, ‘a’, es “hola”, la cual coincide con la palabra hola usada en el español. El subconjunto de () que 
+contenga a todas estas cadenas, será el idioma español.
+
+Pertenece al mundo de los símbolos ya que las cadenas no son estructuras, las cadenas son nuestra forma de darle sentido y un cálculo a U, en el caso 
+del español, el idioma español son el conjunto de cadenas en P, etiquetas perceptibles de las cosas que hay en la mente de un hablante del español.
+
+Como el idioma español es un conjunto de cadenas, tomar una secuencia de cadenas de este no le asigna ningún significado, ya que los símbolos son 
+diferentes entre sí, citando las notas del profesor, "lo que hace a una cosa un símbolo es que es formalmente (es decir: en su forma) diferente 
+identitariamente de otro", por lo que los símbolos en el alfabeto español ni las cadenas que se forman a partir de ellos no tienen un significado, 
+es hasta que un ser humano le da un significado a los símbolos y a las cadenas creadas con ellos.
+
+Pregunta 2
+
+Podemos ver que en L están todas las cadenas que están en (sigma estrella) que empiezan con la subcadena u = 00, por lo que L_ debe de ser lo contrario, 
+todas las cadenas que están en sigma estrella menos las que empiezan con la subcadena u. En notación de conjuntos, L_ es así:
+
+L_ = a uv | u =! 00, v \in sigma estrella.
+
+Pregunta 3
+
+Primero, la cardinalidad de A es infinito, debido a que A es el lenguaje que tiene a todas las cadenas de (sigma estrella) tales que empiezan con \alpha, 
+como la cardinalidad de (sigma estrella) es infinito, la cardinalidad de A debe serlo también, aunque podríamos decir que la cardinalidad de A es 1 / 3 
+de la cardinalidad de (sigma estrella) ya que en A no están las cadenas que empiezan con \beta ni con \gamma.
+
+Ahora, la cardinalidad de B es 3, ya que B es el lenguaje que tiene todas las cadenas de longitud 2 tales que el primer símbolo es \beta y el segundo es 
+un u \in \sigma. Este conjunto es: {\beta\alpha, \beta\beta, \beta\gamma}
+
+Pregunta 4
+Es la investigación
+
+Pregunta 5
+
+En notación de conjuntos sería así:
+	L = {w0 | w \in \sigma^*}
+
+L* es la unión de todas las potencias de L, lo cual da como resultado la misma L, ya que al concatenar cualquier número par en binario, siempre da un 
+número par, ya que terminará en 0 en todos los casos. En notación de conjuntos es idéntico a L:
+L = {w0 | w \in \sigma^*}
+
+Pues al ser el mismo lenguaje, ya que son el mismo conjunto, no se pierde ninguna propiedad sintáctica.
+
+Pregunta 6
+
+Llamemos \Sigma = {0,1} el alfabeto binario, queremos demostrar que para todo alfabeto \Delta con n > 2 símbolos puede ser representado en binario.
+
+Veamos que para representar un alfabeto de 3 símbolos, necesitamos al menos 3 cadenas binarias diferentes, sabemos que con cadenas de longitud 1 con 
+elementos de \Sigma solo podemos representar 2 = 2^1 símbolos diferentes, con cadenas de longitud 2 podemos representar 4 símbolos diferentes, 
+con esos 4 = 2^2 símbolos podemos representar cualquier alfabeto que contenga 3 símbolos o 4. Así en adelante. Por lo que tenemos el siguiente patrón.
+
+Sea k \in \mathB{N}, sabemos que n debe ser menor o igual a 2^k para que se cumpla que todo alfabeto \Delta con n > 2 símbolos puede ser representado 
+con cadenas binarias de los simbolos en \Sigma^*
+
+Ahora despejamos a $k$ de la inecuacion 2^k >= n:
+
+2^k >= n
+log_2(2^k) >= log_2(n)
+k = log_2(n)
+
+Como log_2(n) no es natural en general, debemos usar la funcion techo para obtener el natural más cercano hacia arriba.
+
+Con una k definida podemos crear una función f que vaya de \Delta a \Sigma^k
+
+sean s1,s2,...,s_n \in \Delta
+
+f(s_1) = la representación en binario del número 0 (con longitud k)
+f(s_2) = la representación en binario del número 1 (con longitud k)
+
+.
+.
+.
+
+f(s_n) = la representación en binario del número n-1 (con longitud k)
+
+Como regla de esta función, para que un símbolo s_i de \Sigma no tenga la misma representación que el símbolo s_j, con i != j, debemos de saber 
+que f(s_i) != f(s_j).
+
