@@ -142,25 +142,96 @@ Autómatas y Lenguajes Formales}
     cita tus fuentes en APA7.
 
     \subsection*{Respuesta}
+    \textbf{Micael}\\
+    Al ver este problema, inicialmente buscamos en Google, pero (Micael) recordó que en secundaria le enseñaron una mejor alternativa de
+    buscador, que era Google Scholar, entonces así fue como encontramos el pdf de Díaz Cabrera y García Calcines (2023). En este
+    pdf estaba básicamente todo lo que pedía este problema, así que primero vamos a resolver la pregunta de, ¿Qué es la teoría de
+    categorías?
+
+    Bueno lo primero que hay que ver es que surgió a mediados del siglo XX, esta surgió principalmente como una herramienta para
+    la topología algebraica. Según lo que encontré en el pdf, su enfoque no es estudiar los elementos individuales que viven dentro
+    de un ``espacio'' y con espacio el pdf se refiere a ya sea a un grupo, un conjunto o un espacio vectorial, sino más bien
+    estudiar las relaciones entre estos espacios mediante el uso de flechas o morfismos. Básicamente, funciona como un lenguaje
+    matemático muy abstracto en el que se buscan propiedades comunes entre distintas estructuras. Ahora que ya hemos resuelto esta
+    pregunta, podemos pasar a las siguientes propiedades, las cuales consideré que eran las más importantes:
+
+    \begin{enumerate}
+        \item \textbf{Composición de Morfismos:} Si existe una relación entre un objeto $A$ y un objeto $B$, y otra entre $B$ y un
+        objeto $C$, forzosamente debe existir una relación compuesta que vaya directo de $A$ a $C$.
+        \item \textbf{Existencia de Identidad:} Para cada objeto dentro de la categoría, siempre existe un morfismo identidad
+        que actúa como el elemento ``neutro'' de la composición.
+        \item \textbf{Asociatividad:} En una secuencia de relaciones, no importa cómo agrupemos las composiciones, el resultado final
+        se mantiene inalterado.
+    \end{enumerate}
+
+    Ahora, con esto en mente, vamos a resolver la última pregunta, ¿es la teoría de categorías un sistema formal en U o en
+    P? Según lo que llevo de este curso, podemos decir que esta cae completamente en el mundo de las estructuras (U). Esto debido
+    a que, como hemos visto en esta tarea, el mundo P se limita a los símbolos y las cadenas como unidades básicas, mientras que el
+    mundo U se ocupa de la organización y las interrelaciones. Como podemos ver, la teoría de categorías encaja perfecto con la
+    descripción de U, ya que literalmente deja de lado la estructura de los objetos, estos podríamos verlos como los
+    símbolos, para enfocarse completamente en la estructura de sus relaciones.\\
+
+    \textbf{Referencia Bibliográfica}\\
+    Díaz Cabrera, J., \& García Calcines, J. M. (2023). \textit{Una introducción a la Teoría de Categorías y a sus aplicaciones} [Trabajo de Fin de Grado, Universidad de La Laguna].
 
     \section*{Problema 5}
 
     Sea $\Sigma=\{0,1\}$. Considera el lenguaje formal: $L=\{w\in\Sigma^* \mid w \text{ representa un número par en binario}\}$.
-    
-    \begin{itemize}
-        \item[a)] Describe el lenguaje $L$ con notación de conjuntos.
-        \item[b)] Describe el lenguaje $L^*$ con notación de conjuntos.
-        \item[c)] ¿Qué propiedad sintáctica se pierde al pasar de $L$ a $L^*$?
-    \end{itemize}
 
     \subsection*{Respuestas}
+    \begin{itemize}
+        \item[a)] \textbf{Describe el lenguaje $L$ con notación de conjuntos.}\\
+        Lo primero que hay que recordar es que un número binario es par solo si su último bit es $0$. Por lo tanto, el lenguaje
+        $L$ podemos decir que son todas las de binario que terminan en cero, así que nos quedaría algo así:
+        \[
+            L = \{ w0 \mid w \in \Sigma^* \}
+        \]
 
-    \section*{Problema 6} 
+        \item[b)] \textbf{Describe el lenguaje $L^*$ con notación de conjuntos.}\\
+        A ver para este siguiente inciso creo que es algo redundante, porque $L^*$ se supone que
+        representa todas las posibles concatenaciones $L$ y como cada elemento de $L$ termina en $0$, cualquier concatenación de
+        estas también va a terminar en $0$, obviamente con excepción de $\epsilon$, entonces con esto en mente ahora si nos queda lo
+        siguiente:
+        \[
+            L^* = L \cup \{ \epsilon \}
+        \]
+
+        \item[c)] \textbf{¿Qué propiedad sintáctica se pierde al pasar de $L$ a $L^*$?}\\
+        En sentido no se pierde ninguna propiedad, ya que técnicamente ambos son iguales, si bien en $L^{*}$ usas los elementos
+        de $L$, en $L$ misma podrías encontrar esa concatenación, ya que también tiene infinitas combinaciones. Por lo tanto
+        no se pierde ninguna propiedad.
+    \end{itemize}
+
+    \section*{Problema 6}
 
     Demuestra que todo alfabeto de $n>2$ símbolos puede ser representado con un alfabeto binario.
 
     \subsection*{Respuesta}
-        
+    Definamos $A = \{a_1, a_2, \dots, a_n\}$ como un alfabeto con $n > 2$ símbolos, ahora para poder demostrar que este puede ser
+    representado mediante el alfabeto binario, vaya $\Sigma = \{0, 1\}$, debemos encontrar una función $f: A \to \Sigma^{n}$ que
+    sea inyectiva.
+
+    Ahora para poder asegurar que dicha función existe, basta con observar que si utilizamos cadenas de longitud $k$, el número de
+    combinaciones binarias posibles es $2^k$. Como para cualquier $n > 2$ se cumple que $2^n > n$, entonces si decimos que $k = n$,
+    obviamente tendremos suficientes combinaciones para cubrir todos los símbolos de $A$.
+
+    Ahora con todo esto definimos la función $f: A \to \Sigma^n$ de la siguiente forma, a cada símbolo $a_i \in A$ le asignamos una
+    cadena de longitud $n$ que contiene un $1$ en la posición $i$ y ceros en todas las demás, un ejemplo sería así:
+
+    \begin{itemize}
+        \item $f(a_1) = 100\dots0$
+        \item $f(a_2) = 010\dots0$
+        \item[\vdots]
+        \item $f(a_n) = 000\dots1$
+    \end{itemize}
+
+    Con esta construcción podemos garantizar la inyectividad de la función, ya que cada cadena $f(a_i)$ posee un $1$ en una ubicación única.
+    Por lo tanto:
+    \[ \text{Si } i \neq j \implies f(a_i) \neq f(a_j) \]
+
+    Ahora al haber construido una función inyectiva que mapea cada símbolo de un alfabeto arbitrario $A$ a una cadena binaria única, podemos
+    deicr que queda demostrado que cualquier alfabeto de $n$ símbolos con $n > 2$ puede ser representado con el alfabeto binario.
+    
     \section*{Problema 7} 
 
     Sean $x,y\in\Sigma^+$. Demuestra que si la concatenación $x\cdot y$ conmuta, es decir: $x\cdot y=y\cdot x$, entonces existe $w\in\Sigma^*$ y 
