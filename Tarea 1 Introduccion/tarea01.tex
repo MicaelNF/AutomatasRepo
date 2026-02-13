@@ -231,4 +231,101 @@ Autómatas y Lenguajes Formales}
 
     Ahora al haber construido una función inyectiva que mapea cada símbolo de un alfabeto arbitrario $A$ a una cadena binaria única, podemos
     deicr que queda demostrado que cualquier alfabeto de $n$ símbolos con $n > 2$ puede ser representado con el alfabeto binario.
+
+    \section*{Problema 7}
+
+    Sean $x,y\in\Sigma^+$. Demuestra que si la concatenación $x\cdot y$ conmuta, es decir: $x\cdot y=y\cdot x$, entonces existe $w\in\Sigma^*$ y
+    existen $i, j\in\mathbb{Z}^+$ tal que $x=w^i$ y $y=w^j$. \textit{Hint: Usa inducción sobre la longitud de $x\cdot y$.}
+
+    \subsection*{Respuesta}
+
+    Para demostrar esto usaremos inducción (como lo sugiere el problema), sera sobre sobre la longitud de la concatenación de $x$ y $y$, esto nos crea la nueva
+    cadena $x\cdot y$ por lo que la longitud será $n = |x\cdot y| = |x| + |y|$
+
+    \subsubsection*{Caso Base}
+    Como $x$ y $y$ están $\Sigma^+$, no pueden ser la cadena vacía $\epsilon$, entonces la longitud mínima de cada una es 1, como nuestra n es la longitud de $x$
+    más la longitud de $y$, entonces nuestra $n$ minima es $2$. Probemos el caso base.
+
+    Sabemos que $|x|=1$ y $|y|=1$, esto nos dice que con cadenas con simbolo, para que se cumpla que $x\cdot y = y\cdot x$ con $|x|=1$ y $|y|=1$, $x$ debe ser
+    idéntico a $y$, así que podemos definir una cadena $w = x$, como $x = y$, entonces $y = w$ y por definión de potencia de cadenas $x = w^1$ y $y = w^1$.
+    Por lo tanto, se cumple el caso base.
+
+    \subsubsection*{Hipótesis de Inducción}
+    Usaremos la hipótesis de inducción fuerte. Suponemos que se cumple para cualesquiera dos cadenas $u, v$ tales que su longitud sea menor que la longitud $n$,
+    o sea, si $|u\cdot v| < |x\cdot y|$ y $u\cdot v = v\cdot u$, entonces $u$ y $v$ comparten una raíz común.
+
+    \subsubsection*{Paso Inductivo}
+    P.D. el caso donde $|x\cdot y| = n$.
+
+    \vspacel
+
+    Debido a que $i$ y $j$ pueden ser diferentes tenemos dos casos a considerar:
+
+    \vspacel
+
+    Caso 1: Las cadenas tienen la misma longitud $|x| = |y|$ y,
+
+    Caso 2: Las cadenas tienen longitudes distintas.
+
+    \vspacel
+
+    Veamos primero el caso 1.
+
+    Si $x\cdot y = y\cdot x$ y ambas tienen el mismo tamaño, quiere decir que todos los elementos de $x$ ocupan el mismo espacio que los elementos de $y$, y si son de
+    la misma longitud, entonces $x$ debe ser igual a $y$, por lo que podemos elegir una cadena $w = x$, que cumple que $x = w = w^{i}$ y $y = w = w^{j}$, con
+    $i = j = 1$.\\
+
+    Se cumple el Caso 1.
+
+    \vspacel
+
+    Ahora el Caso 2.
+
+    Podemos suponer, sin perdida de generalidad, que $x$ es más corta que $y$, es decir $|x| < |y|$\\
+
+    Tenemos que \( x\cdot y = y\cdot x \), del lado izquierdo podemos ver que la cadena $x\cdot y$ empieza con la cadena $x$, ahora, del lado derecho de la igualdad
+    la cadena comienza con $y$, pero como \( x\cdot y = y\cdot x \), entonces en $y$ debe de estar $x$, como $x$ es más pequeña y ambas inician la secuencia,
+    entonces para que se cumpla la igualdad $x$ debe ser un prefijo de $y$. Gracias a esto podemos escribir a $y$ como la concatenación de $x$
+    con alguna cadena $z$, como $x$ es más pequeña que $y$, $z$ no puede ser $\epsilon$. Esto es:
+
+    \[
+        y = x\cdot z
+    \]
+
+    Entonces, sustituimos $y$ en la ecuación original $x\cdot y = y\cdot x$:
+
+    \begin{align*}
+        x\cdot (x\cdot z) &= (x\cdot z)\cdot x \\
+        x\cdot (x\cdot z) &= x\cdot (z\cdot x) \tag{1}
+    \end{align*}
+
+    $(1)$ Por asociatividad de la concatenación y por la ecuacion original.
+
+    \vspacel
+
+    Podemos observar que ambas cadenas empiezan con la cadena $x$, entonces, si quitamos los simbolos de la primera $x$ de ambas cadenas, llegariamos
+    a la igualdad \( x\cdot z = z\cdot x \). Esta igualdad nos indica que las cadenas $x$ y $z$ también conmutan.\\
+
+    Para poder utilizar nuestra hipótesis inductiva, vemos que la longitud de $x\cdot z$ es igual a la de $y$
+
+    \[ |x\cdot z| = |y| < |x| + |y| = |x\cdot y| = n \]
+
+    Como la longitud de $x\cdot z$ es menor que la longitud original $n$, podemos usar la hipótesis inductiva con $x$ y $z$.\\
+
+    Por la hipótesis, existe una cadena $w$ tal que $x$ y $z$ son potencias de ella:
+
+    \[ x = w^k \quad \text{y} \quad z = w^m \]
+
+    Recordamos que $y = xz$. Sustituimos tomando en cuenta esta igualdad
+
+    \[ y = x\cdot z = w^k \cdot w^m = w^{k+m} \]
+
+    Por lo tanto,
+
+    \[
+        x = w^k \text{y} y = w^{k+m}
+    \]
+
+    Como ambas cadenas están hechas por una cadena en común $w$, repetida $k$ o $k + m$ veces, cumplen que las cadenas conmutan.
+
 \end{document}
