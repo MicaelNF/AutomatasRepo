@@ -1,0 +1,122 @@
+\documentclass[14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{physics}
+\pgfplotsset{compat=1.18}
+\spanishdecimal{.}
+\newcommand{\vspacel}{\vspace{0.5 cm}}
+
+\title{Tarea 2: Computabilidad y Decibilidad}
+\author{Nolasco Flores Micael\\
+No. De cuenta: 322132281\\
+\\
+Núñez Hernández Leonardo Daniel\\
+No. De cuenta: 322305122\\
+\\
+UNAM, Facultad de Ciencias\\
+Ciencias de la Computación\\
+Autómatas y Lenguajes Formales}
+\date{27 de Febrero de 2026}
+
+\begin{document}
+    \maketitle
+
+    \newpage
+
+    Recordemos que entenderemos como máquina matemática a la definición que dio Turing (1936) para lo que él llamaría máquina de cómputo automática.
+    
+    \section*{Problema 1}
+
+    Da un procedimiento eficaz intuitivo para encontrar las raíces de todos los polinomios sobre $\mathbb{R}$ de grado a lo más 1 (los de la 
+    forma $ax+b$ con $a \neq 0$).
+
+    \begin{itemize}
+        \item No pueden escribir directamente la fórmula cuadrática.
+        \item Deben descomponer el procedimiento en pasos elementales.
+        \item Deben indicar explícitamente: qué operaciones están permitidas, por qué el procedimiento termina, qué datos de entrada son necesarios.
+    \end{itemize}
+    
+    \subsection*{Respuesta}
+
+    \section*{Problema 2}
+
+    Da un procedimiento eficaz intuitivo para encontrar las raíces de todos los polinomios sobre $\mathbb{R}$ de grado a lo más 2 (los de la forma $ax^{2}+bx+c$).
+    
+    \begin{itemize}
+        \item No pueden escribir directamente la fórmula cuadrática.
+        \item Deben descomponer el procedimiento en pasos elementales.
+        \item Deben indicar explícitamente: qué operaciones están permitidas, por qué el procedimiento termina, qué datos de entrada son necesarios.
+    \end{itemize}
+
+    \subsection*{Respuesta}
+
+    \section*{Problema 3}
+
+    Muestra por qué las respuestas que diste para (1) y (2) son, de hecho, procedimientos eficaces en los términos de los requerimientos de Hilbert-Pasch. 
+    Deben distinguir con claridad entre:
+    \begin{itemize}
+        \item Operaciones matemáticas abstractas.
+        \item Acciones eficazmente ejecutables por una máquina matemática.
+    \end{itemize}
+
+    \subsection*{Respuesta}
+
+    \section*{Problema 4}
+
+    Una máquina matemática se llamará circular (o con círculo/ciclo) si ya no es posible cambiar a otras configuraciones o si es una que imprime basura. Hay 
+    máquinas matemáticas que se quedan en la misma m-configuración y siguen haciendo bien su trabajo. ¿Por qué esas máquinas no son circulares?
+
+    \subsection*{Respuesta}
+
+    \section*{Problema 5}
+
+    Da la especificación de una máquina matemática (en forma tabular) que esté en un ciclo infinito (pero que no sea circular) y escriba SOLAMENTE 
+    las primeras 8 posiciones impares de la sucesión de Fibonacci; comenzando desde el índice cero: 0, 1, 1, 2, 3, .... La máquina debe hacerlo usando 
+    notación unaria. Además, exhibe las descripciones instantáneas que describen a la máquina hasta llegar a esas primeras 8 posiciones, y haz lo 
+    mismo con las actualizaciones que sufre la cinta utilizando la notación de estados newtoniana. Explica por qué sí o por qué no serán útiles los 
+    E-registros de la cinta T para esta computación.
+
+    \subsection*{Respuesta}
+
+    \section*{Problema 6}
+
+    ¿Qué significa que las instrucciones de la máquina matemática sean "atómicas"? Relaciona esto con los requerimientos de Pasch y Hilbert.
+
+    \subsection*{Respuesta}
+
+    \section*{Problema 7}
+
+    Para la máquina matemática que imprime indefinidamente 010101... y que está en el ejemplo 1 de la sección 4.A de las notas, muestra 
+    que es posible construir otra máquina matemática pero con menos m-configuraciones.
+
+    \subsection*{Respuesta}
+
+    \section*{Problema 8}
+
+    Da la especificación de una máquina matemática que calcule igualdad de números en notación unaria. Es decir, dada una entrada 
+    $T_{1}=1\sqcup1\sqcup0\sqcup1\sqcup1$ la cinta resultante debe ser $T_{1}=1\sqcup1\sqcup0\sqcup1\sqcup1V$. En otro caso, 
+    si la entrada es $T_{2}=1\sqcup1\sqcup0\sqcup1$ el resultado debe ser $T_{2}=1\sqcup1\sqcup0\sqcup1F$.
+
+    \subsection*{Respuesta}
+
+    \section*{Problema 9}
+
+    Define el problema \textbf{CIRC?} y responde: ¿por qué conduce a una contradicción cuando se alimenta la máquina con su propio número descriptor?
+
+    \subsection*{Respuesta}
+
+\end{document}
