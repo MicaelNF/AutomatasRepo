@@ -78,9 +78,9 @@ Autómatas y Lenguajes Formales}
         \item Se lee el valor del símbolo a.
         \item Se lee el valor del símbolo $s_2$.
         \item Se usa la operación división, ($s_2$) / (a) y se guarda el resultado en $s_3$
-        \item Se lee el símbolo $s_3$.
+        \item Se lee el valor del símbolo $s_3$.
         \item Se escribe el valor del símbolo $s_3$.
-        \item Finaliza el procedimiento
+        \item Finaliza el procedimiento.
     \end{enumerate}
 
     Y finalmente el procedimiento acaba debido a que es una lista con pasos finitos, además de estar bien definidos,
@@ -98,6 +98,65 @@ Autómatas y Lenguajes Formales}
     \end{itemize}
 
     \subsection*{Respuesta}
+
+    Al igual que en el anterior problema lo primero que haremos es definir cuales son las operaciones que están permitidas, entonces:
+    \begin{itemize}
+        \item La operación resta entre dos números reales, digamos que es $-$.
+        \item La operación suma entre dos números reales, digamos que es $+$.
+        \item La operación multiplicación entre dos números reales, digamos que es $\times$.
+        \item La operación división entre dos números reales, digamos que es $/$.
+        \item La operación igualdad entre dos números reales, digamos que es $=$.
+        \item La operación raíz de un número real, digamos que es $\sqrt{}$.
+        \item La lectura de símbolos.
+        \item El almacenamiento de símbolos.
+        \item La escritura de símbolos o valores.
+    \end{itemize}
+
+    Lo que nos hace falta es definir nuestras entradas, las cuales son solo 3:
+    \begin{itemize}
+        \item Entrada del símbolo a
+        \item Entrada del símbolo b
+        \item Entrada del símbolo c
+    \end{itemize}
+
+    Ahora ya que tenemos todo esto, ya podemos dar un procedimiento eficaz intuitivo, entonces:
+    \begin{enumerate}
+        \item Inicia el procedimiento.
+        \item Se lee el valor del símbolo b.
+        \item Se usa la operación multiplicación, (-1) $\times$ (b) y se guarda el resultado en un símbolo $s_1$. % -b
+        \item Se usa la operación multiplicación, (b) $\times$ (b) y se guarda el resultado en un símbolo $s_2$. %b^{2}
+        \item Se lee el valor del símbolo a.
+        \item Se usa la operación igualdad, (a) $=$ (0), si el valor de a es igual a 0, entonces se ejecuta el procedimiento del problema 1,
+        sustituyendo b por a y c por b y finaliza el procedimiento una vez que acabe en el problema 1. En caso de a no ser igual a 0 se
+        sigue en este procedimiento.
+        \item Se usa la operación multiplicación, (2) $\times$ (a) y se guarda el resultado en un símbolo $s_3$. %2a
+        \item Se lee el valor del símbolo $s_3$.
+        \item Se usa la operación multiplicación, (2) $\times$ ($s_3$) y se guarda el resultado en un símbolo $s_4$. %4a
+        \item Se lee el valor del símbolo c.
+        \item Se lee el valor del símbolo $s_4$.
+        \item Se usa la operación multiplicación, ($s_4$) $\times$ (c) y se guarda el resultado en un símbolo $s_5$. %4ac
+        \item Se lee el valor del símbolo $s_2$.
+        \item Se lee el valor del símbolo $s_5$.
+        \item Se usa la operación resta, ($s_2$) $-$ ($s_5$) y se guarda el resultado en un símbolo $s_6$. %b^{2} - 4ac
+        \item Se lee el valor del símbolo $s_6$.
+        \item Se usa la operación raíz, $\sqrt{s_6}$ y se guarda el resultado en un símbolo $s_7$. %\sqrt{b^{2} - 4ac}
+        \item Se lee el valor del símbolo $s_7$.
+        \item Se usa la operación resta, ($s_7$) $-$ (b) y se guarda el resultado en un símbolo $s_8$. %suma de arriba
+        \item Se lee el valor del símbolo $s_1$.
+        \item Se usa la operación resta, ($s_1$) $-$ ($s_7$) y se guarda el resultado en un símbolo $s_9$. %resta de arriba
+        \item Se lee el valor del símbolo $s_8$.
+        \item Se usa la operación división, ($s_8$) $/$ ($s_3$) y se guarda el resultado en un símbolo $s_{10}$.
+        \item Se lee el valor del símbolo $s_9$.
+        \item Se usa la operación división, ($s_9$) $/$ ($s_3$) y se guarda el resultado en un símbolo $s_{11}$.
+        \item Se lee el valor del símbolo $s_{10}$.
+        \item Se escribe el valor del símbolo $s_{10}$.
+        \item Se lee el valor del símbolo $s_{11}$.
+        \item Se escribe el valor del símbolo $s_{11}$.
+        \item Finaliza el procedimiento.
+    \end{enumerate}
+
+    Este procedimiento acaba debido a lo mismo que en el anterior problema, solo que este consta de 30 pasos bien definidas
+    y al igual que antes, evitamos dividir entre 0, por lo tanto no hay indeterminaciones.
 
     \section*{Problema 3}
 
