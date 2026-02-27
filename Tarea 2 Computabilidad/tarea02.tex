@@ -75,6 +75,48 @@ Autómatas y Lenguajes Formales}
 
     \subsection*{Respuesta}
 
+    Recordemos la definición de procedimiento eficaz dado los requerimientos de Hilbert-Pash. (Sacados de las notas del profesor)\\
+
+    Un procedimiento es eficaz si cumple lo siguiente:
+
+    \begin{itemize}
+        \item \textbf{Está constituido por un número finito de instrucciones, mismas que están compuestas por un número finito de reglas atómicas.}
+        
+        Nuestros 2 procedimientos están constituidos por conjuntos finitos de instrucciones, se rigen por las operaciones matemáticas abstractas
+        que están definidas en $\mathbb{R}$.
+
+        \item \textbf{La ejecución de las instrucciones no dependen de la intuición ni creatividad del aplicante.}
+        
+        En ambos procedimientos las instrucciones son pasos elementales, no cabe la creatividad del aplicante y no es necesaria la intuición del
+        aplicante para llegar al resultado deseado.
+
+        \item \textbf{Está definido en un lenguaje formal adecuado según el problema que debamos resolver.}
+        
+        Como los problemas que resuelven estos procedimientos están planteados con la notación más usada para representar los reales, los procedimientos
+        están dados con ese mismo lenguaje.
+        
+        \item \textbf{Debe conducir a una solución en un número finito de pasos.}
+        
+        Nuestros procedimientos están constituidos por conjuntos finitos de instrucciones, las cuales indican un número finito de pasos, por lo que 
+        se cumple que los procedimientos conducen a la solución en un número finito de pasos.
+
+        \item \textbf{Debe utilizar recursos (como tiempo y espacio) finitos.}
+        
+        En nuestros procedimientos no hay forma de caer en bucles infinitos, por lo que sabemos que los procedimientos terminan en un tiempo
+        finito, tampoco necesita espacio infinito. 
+    \end{itemize}
+
+    Despues de este analisis, podemos decir que ambos procedimientos son procedimientos eficaces.
+
+    \vspacel
+
+    Ahora, falta distinguir entre operaciones matemáticas abstractas y acciones eficazmente ejecutables por una máquina matemática.\\
+
+    En el caso de estos procedimientos, nuestras operaciones matemáticas abstractas son las operaciones que están definidas en $\mathbb{R}$ que utilizamos
+    en el procedimiento, con estas operaciones logramos definir pasos elementales para resolver ambos problemas, estos pasos son las acciones eficazmente 
+    ejecutables por una máquina matemática, la máquina matematica solo tiene las entradas a y b, y el procedimiento eficaz le dice que hacer con las entradas
+    y las operaciones matematicas abstractas.
+
     \section*{Problema 4}
 
     Una máquina matemática se llamará circular (o con círculo/ciclo) si ya no es posible cambiar a otras configuraciones o si es una que imprime basura. Hay 
@@ -82,6 +124,12 @@ Autómatas y Lenguajes Formales}
 
     \subsection*{Respuesta}
 
+    Si hay una máquina que se queda en una misma m-configuración es una máquina la cual se queda en un estado $q_i$. Si esta máquina contiene un ciclo
+    pero ya no hace nada, es decir, es ineficaz, será una máquina circular, pero si esta máquina se queda en ese estado pero sigue siendo eficaz, entonces
+    no es circular. Es posible que una máquina se quede en un mismo estado pero que ese estado tenga las reglas y la información necesaria (ya que aún se 
+    puede mover sobre la cinta, así que la máquina puede recibir la información de toda la cinta) para seguir y acabar su trabajo, 
+    cumpliendo el procedimiento eficaz.
+    
     \section*{Problema 5}
 
     Da la especificación de una máquina matemática (en forma tabular) que esté en un ciclo infinito (pero que no sea circular) y escriba SOLAMENTE 
@@ -94,9 +142,19 @@ Autómatas y Lenguajes Formales}
 
     \section*{Problema 6}
 
-    ¿Qué significa que las instrucciones de la máquina matemática sean "atómicas"? Relaciona esto con los requerimientos de Pasch y Hilbert.
+    ¿Qué significa que las instrucciones de la máquina matemática sean ''atómicas''? Relaciona esto con los requerimientos de Pasch y Hilbert.
 
     \subsection*{Respuesta}
+
+    Cuando nos referimos a una instrucción como atómica nos referimos a que esta instrucción no se puede dividir en instrucciones o pasos más específicos,
+    es decir, no se pueden dividir en pasos más elementales. La máquina matemática debe de recibir y usar instrucciones atómicas para realizar bien su trabajo,
+    el trabajo de una máquina matemática eficaz es realizar un procedimiento eficaz. 
+    
+    Recordemos que Pasch y Hilbert establecieron 5 requerimientos para definir a un procedimiento eficaz, uno de estos es que ''Un procedimiento 
+    eficaz está constituido por un número finito de instrucciones, mismas que están compuestas por un número finito de reglas atómicas'', podemos 
+    observar que, gracias a que las instrucciones de las máquinas matemáticas sean atómicas, pueden codificar procedimientos eficaces, ya que estos 
+    usan instrucciones regidas por reglas atómicas. Esto también nos dice que no hay espacio para la intuición o creatividad de alguien externo, lo 
+    cual es, también, uno de los requerimientos de Hilbert-Pasch.
 
     \section*{Problema 7}
 
@@ -104,6 +162,37 @@ Autómatas y Lenguajes Formales}
     que es posible construir otra máquina matemática pero con menos m-configuraciones.
 
     \subsection*{Respuesta}
+
+    Primero, observemos que la máquina definida en el ejemplo de las notas utiliza 4 estados:
+
+    \begin{itemize}
+        \item $q_0$: No importa el símbolo que vea escribe un $S_1 = 0$, se mueve a la derecha y cambia al estado $q_1$.
+        \item $q_1$: Si ve el símbolo $x$, deja el símbolo $x$, se mueve a la derecha y cambia al estado $q_2$.
+        \item $q_2$: No importa el símbolo que vea escribe un $S_2 = 1$, se mueve a la derecha y cambia al estado $q_3$.
+        \item $q_3$: Si se ve el símbolo $x$, deja el símbolo $x$, se mueve a la derecha y cambia al estado $q_0$.
+    \end{itemize}
+
+    Con 4 estados logra imprimir indefinidamente 010101..., pero, tomando en cuenta que está permitido tener estados los cuales pueden tener dos 
+    movimientos en vez de 1 podemos obtener este mismo resultado solo con 2 estados, ya que al poder hacer dos movimientos a la derecha podemos ''saltar'' 
+    los E-registros sin necesidad de tener estados extras que hagan eso. La representación tabular de esta máquina es la siguiente:
+
+    \begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $q_i/S_j$ & $S_0$ & $S_1$ & $S_2$ & $S_3$ & $\dots$ \\ \hline
+    $q_0$ & $S_1, RR, q_1$ & $S_1, RR, q_1$ & $S_1, RR, q_1$ & $S_1, RR, q_1$ & $\dots$ \\ \hline
+    $q_1$ & $S_2, RR, q_0$ & $S_2, RR, q_0$ & $S_2, RR, q_0$ & $S_2, RR, q_0$ & $\dots$ \\ \hline
+    \end{tabular}
+    \end{table}
+
+    Los estados hacen lo siguiente:
+
+    \begin{itemize}
+        \item $q_0$: No importa el símbolo que vea, escribe un $S_1 = 0$, se mueve dos veces a la derecha y cambia al estado $q_1$.
+        \item $q_1$: No importa el símbolo que vea, escribe un $S_2 = 1$, se mueve dos veces a la derecha y cambia al estado $q_0$.
+    \end{itemize}
 
     \section*{Problema 8}
 
@@ -118,5 +207,25 @@ Autómatas y Lenguajes Formales}
     Define el problema \textbf{CIRC?} y responde: ¿por qué conduce a una contradicción cuando se alimenta la máquina con su propio número descriptor?
 
     \subsection*{Respuesta}
+    
+    Este tema ha sido muy discutido en clase, el problema \textbf{CIRC?} parte de que las máquinas definidas por Turing tienen la condición de no detenerse a 
+    menos de que alguien externo las detenga, esto hace posible que existan máquinas que se hagan circulares, es decir, que tengan un ciclo, el cual las
+    haga imprimir solo en E-registros, lo cual es imprimir basura, o, que la máquina ya no haga nada. Ahora, el problema se define así:
+
+    \vspacel
+    
+    Decidir si para toda $n$ en $\mathbb{N}$ si $n$ codifica a una $M_F$ sin círculo.
+
+    \vspacel
+
+    Esto quiere decir que hay que decidir si existe una máquina que pueda verificar si una $M_F$ tiene ciclo o no.\\
+
+    En principio podemos pensar que esta máquina si existe, sea $M_{circ}$ la máquina que nos dice si otra máquina tiene ciclo o no, a partir de su número
+    descriptor, para hacerlo, $M_{circ}$, copia en ella la máquina a verificar, la contradicción de la existencia de la máquina $M_{circ}$ es cuando la 
+    máquina debe de verificar su propio número descriptor, cuando $M_{circ}$ quiere verificar que $M_{circ}$ tiene o no ciclo, tendrá que copiar en 
+    ella a $M_{circ}$, la cual también tendrá que verificar que $M_{circ}$ tiene ciclo o no, entonces $M_{circ}$ empieza a copiarse dentro de ella misma 
+    sin alguna m-configuración que la detenga, lo cual es un ciclo, esto convierte a $M_{circ}$ en una máquina circular, así que la máquina que 
+    verifica que una $M_F$ tiene ciclo o no, no puede existir.
+
 
 \end{document}
