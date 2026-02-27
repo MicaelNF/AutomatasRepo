@@ -52,6 +52,41 @@ Autómatas y Lenguajes Formales}
     
     \subsection*{Respuesta}
 
+    Lo primero que haremos es definir cuales son las operaciones que están permitidas, así que son las siguientes:
+    \begin{itemize}
+        \item La operación resta entre dos números reales, digamos que es $-$.
+        \item La operación división entre dos números reales, digamos que es $/$.
+        \item La lectura de símbolos.
+        \item El almacenamiento de símbolos.
+        \item La escritura de símbolos o valores.
+    \end{itemize}
+
+    Ahora las entradas para que funcione el procedimiento, son solo dos y son las siguientes:
+    \begin{itemize}
+        \item Entrada del símbolo a siendo diferente de 0
+        \item Entrada de símbolo b
+    \end{itemize}
+
+    Ahora que tenemos las entradas y las operaciones que vamos a usar, lo que vamos a hacer es describir el procedimiento eficaz
+    intuitivo que nos pide el problema, entonces:
+    \begin{enumerate}
+        \item Inicia el procedimiento.
+        \item Se lee el valor del símbolo b.
+        \item Se usa la operación resta, (b) $-$ (b) y se guarda el resultado en un símbolo $s_1$.
+        \item Se lee el valor del símbolo $s_1$
+        \item Se usa la operación resta, $s_1$ $-$ (b) y se guarda el resultado en un símbolo $s_2$.
+        \item Se lee el valor del símbolo a.
+        \item Se lee el valor del símbolo $s_2$.
+        \item Se usa la operación división, ($s_2$) / (a) y se guarda el resultado en $s_3$
+        \item Se lee el símbolo $s_3$.
+        \item Se escribe el valor del símbolo $s_3$.
+        \item Finaliza el procedimiento
+    \end{enumerate}
+
+    Y finalmente el procedimiento acaba debido a que es una lista con pasos finitos, además de estar bien definidos,
+    en ningun momento deberías de atorarte, el único caso peligroso es cuando hacemos la división entre a, pero como a
+    es necesariamente diferente de 0 quiere decir que su resultado si va a estar bien definido.
+
     \section*{Problema 2}
 
     Da un procedimiento eficaz intuitivo para encontrar las raíces de todos los polinomios sobre $\mathbb{R}$ de grado a lo más 2 (los de la forma $ax^{2}+bx+c$).
