@@ -16,6 +16,7 @@
 \usepackage{pgfplots}
 \usepackage{float}
 \usepackage{physics}
+\usepackage{longtable}
 \pgfplotsset{compat=1.18}
 \spanishdecimal{.}
 \newcommand{\vspacel}{\vspace{0.5 cm}}
@@ -53,6 +54,41 @@ Autómatas y Lenguajes Formales}
     
     \subsection*{Respuesta}
 
+    Lo primero que haremos es definir cuales son las operaciones que están permitidas, así que son las siguientes:
+    \begin{itemize}
+        \item La operación resta entre dos números reales, digamos que es $-$.
+        \item La operación división entre dos números reales, digamos que es $/$.
+        \item La lectura de símbolos.
+        \item El almacenamiento de símbolos.
+        \item La escritura de símbolos o valores.
+    \end{itemize}
+
+    Ahora las entradas para que funcione el procedimiento, son solo dos y son las siguientes:
+    \begin{itemize}
+        \item Entrada del símbolo a siendo diferente de 0
+        \item Entrada de símbolo b
+    \end{itemize}
+
+    Ahora que tenemos las entradas y las operaciones que vamos a usar, lo que vamos a hacer es describir el procedimiento eficaz
+    intuitivo que nos pide el problema, entonces:
+    \begin{enumerate}
+        \item Inicia el procedimiento.
+        \item Se lee el valor del símbolo b.
+        \item Se usa la operación resta, (b) $-$ (b) y se guarda el resultado en un símbolo $s_1$.
+        \item Se lee el valor del símbolo $s_1$
+        \item Se usa la operación resta, $s_1$ $-$ (b) y se guarda el resultado en un símbolo $s_2$.
+        \item Se lee el valor del símbolo a.
+        \item Se lee el valor del símbolo $s_2$.
+        \item Se usa la operación división, ($s_2$) / (a) y se guarda el resultado en $s_3$
+        \item Se lee el valor del símbolo $s_3$.
+        \item Se escribe el valor del símbolo $s_3$.
+        \item Finaliza el procedimiento.
+    \end{enumerate}
+
+    Y finalmente el procedimiento acaba debido a que es una lista con pasos finitos, además de estar bien definidos,
+    en ningun momento deberías de atorarte, el único caso peligroso es cuando hacemos la división entre a, pero como a
+    es necesariamente diferente de 0 quiere decir que su resultado si va a estar bien definido.
+
     \section*{Problema 2}
 
     Da un procedimiento eficaz intuitivo para encontrar las raíces de todos los polinomios sobre $\mathbb{R}$ de grado a lo más 2 (los de la forma $ax^{2}+bx+c$).
@@ -64,6 +100,65 @@ Autómatas y Lenguajes Formales}
     \end{itemize}
 
     \subsection*{Respuesta}
+
+    Al igual que en el anterior problema lo primero que haremos es definir cuales son las operaciones que están permitidas, entonces:
+    \begin{itemize}
+        \item La operación resta entre dos números reales, digamos que es $-$.
+        \item La operación suma entre dos números reales, digamos que es $+$.
+        \item La operación multiplicación entre dos números reales, digamos que es $\times$.
+        \item La operación división entre dos números reales, digamos que es $/$.
+        \item La operación igualdad entre dos números reales, digamos que es $=$.
+        \item La operación raíz de un número real, digamos que es $\sqrt{}$.
+        \item La lectura de símbolos.
+        \item El almacenamiento de símbolos.
+        \item La escritura de símbolos o valores.
+    \end{itemize}
+
+    Lo que nos hace falta es definir nuestras entradas, las cuales son solo 3:
+    \begin{itemize}
+        \item Entrada del símbolo a
+        \item Entrada del símbolo b
+        \item Entrada del símbolo c
+    \end{itemize}
+
+    Ahora ya que tenemos todo esto, ya podemos dar un procedimiento eficaz intuitivo, entonces:
+    \begin{enumerate}
+        \item Inicia el procedimiento.
+        \item Se lee el valor del símbolo b.
+        \item Se usa la operación multiplicación, (-1) $\times$ (b) y se guarda el resultado en un símbolo $s_1$. % -b
+        \item Se usa la operación multiplicación, (b) $\times$ (b) y se guarda el resultado en un símbolo $s_2$. %b^{2}
+        \item Se lee el valor del símbolo a.
+        \item Se usa la operación igualdad, (a) $=$ (0), si el valor de a es igual a 0, entonces se ejecuta el procedimiento del problema 1,
+        sustituyendo b por a y c por b y finaliza el procedimiento una vez que acabe en el problema 1. En caso de a no ser igual a 0 se
+        sigue en este procedimiento.
+        \item Se usa la operación multiplicación, (2) $\times$ (a) y se guarda el resultado en un símbolo $s_3$. %2a
+        \item Se lee el valor del símbolo $s_3$.
+        \item Se usa la operación multiplicación, (2) $\times$ ($s_3$) y se guarda el resultado en un símbolo $s_4$. %4a
+        \item Se lee el valor del símbolo c.
+        \item Se lee el valor del símbolo $s_4$.
+        \item Se usa la operación multiplicación, ($s_4$) $\times$ (c) y se guarda el resultado en un símbolo $s_5$. %4ac
+        \item Se lee el valor del símbolo $s_2$.
+        \item Se lee el valor del símbolo $s_5$.
+        \item Se usa la operación resta, ($s_2$) $-$ ($s_5$) y se guarda el resultado en un símbolo $s_6$. %b^{2} - 4ac
+        \item Se lee el valor del símbolo $s_6$.
+        \item Se usa la operación raíz, $\sqrt{s_6}$ y se guarda el resultado en un símbolo $s_7$. %\sqrt{b^{2} - 4ac}
+        \item Se lee el valor del símbolo $s_7$.
+        \item Se usa la operación resta, ($s_7$) $-$ (b) y se guarda el resultado en un símbolo $s_8$. %suma de arriba
+        \item Se lee el valor del símbolo $s_1$.
+        \item Se usa la operación resta, ($s_1$) $-$ ($s_7$) y se guarda el resultado en un símbolo $s_9$. %resta de arriba
+        \item Se lee el valor del símbolo $s_8$.
+        \item Se usa la operación división, ($s_8$) $/$ ($s_3$) y se guarda el resultado en un símbolo $s_{10}$.
+        \item Se lee el valor del símbolo $s_9$.
+        \item Se usa la operación división, ($s_9$) $/$ ($s_3$) y se guarda el resultado en un símbolo $s_{11}$.
+        \item Se lee el valor del símbolo $s_{10}$.
+        \item Se escribe el valor del símbolo $s_{10}$.
+        \item Se lee el valor del símbolo $s_{11}$.
+        \item Se escribe el valor del símbolo $s_{11}$.
+        \item Finaliza el procedimiento.
+    \end{enumerate}
+
+    Este procedimiento acaba debido a lo mismo que en el anterior problema, solo que este consta de 30 pasos bien definidas
+    y al igual que antes, evitamos dividir entre 0, por lo tanto no hay indeterminaciones.
 
     \section*{Problema 3}
 
@@ -140,6 +235,300 @@ Autómatas y Lenguajes Formales}
     E-registros de la cinta T para esta computación.
 
     \subsection*{Respuesta}
+    Lo primero que haremos es definir el estado inicial de nuestra cinta y lo llamaremos T, entonces sea $T = r_{1}r_{2}r_{3} \dots r_{28}$,
+    con:
+    \begin{itemize}
+        \item $r_{i} = 0$ para todo $i$ impar tal que $i \in \{ 1,3,5, \dots, 27 \}$
+        \item $r_{2} = S$
+        \item $r_{j} = C$ para todo $j$ par tal que $j \in \{2,4,6, \dots, 28 \}$
+    \end{itemize}
+
+    Con todo esto nuestra cinta en su forma inicial nos quedaría así:
+    \[
+        T = 0S0C0C0C \dots 0C0C
+    \]
+
+    Por lo tanto ahora sí podemos dar la especificación de una máquina matemática en forma tabular que haga lo que nos pide el problema, y
+    esta queda así:
+
+    {
+        \renewcommand{\arraystretch}{1.1}
+        \setlength{\tabcolsep}{4pt}
+
+        \begin{longtable}{|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            $q_i/S_j$ & $S_0$ & $0$ & $1$ & $P$ & $U$ & $*$ & $T$ & $C$ & $S$ \\ \hline
+            \endfirsthead
+
+            \hline
+            $q_i/S_j$ & $S_0$ & $0$ & $1$ & $P$ & $U$ & $*$ & $T$ & $C$ & $S$ \\ \hline
+            \endhead
+
+            $q_{0}$ & $S_{0}, RL, q_{1}$ & $0, R, q_{0}$ & & & & & & $C, R, q_{0}$ & $S, R, q_{0}$\\ \hline
+            $q_{1}$ & $0, R, q_{2}$ & & & & & & & & \\ \hline
+            $q_{2}$ & $P, R, q_{3}$ & & & & & & & & \\ \hline
+            $q_{3}$ & $1, RR, q_{4}$ & & & & & & & & \\ \hline
+            $q_{4}$ & $0, RR, q_{5}$ & & & & & & & & \\ \hline
+            $q_{5}$ & $1, R, q_{6}$ & & & & & & & & \\ \hline
+            $q_{6}$ & $U, R, q_{7}$ & & & & & & & & \\ \hline
+            $q_{7}$ & $0, R, q_{8}$ & & & & & & & & \\ \hline
+            $q_{8}$ & $*, RL, q_{9}$ & & & & & & & & \\ \hline
+            $q_{9}$ & $S_0, L, q_{9}$ & $0, L, q_{9}$ & $1, L, q_{9}$ & $S_0, R, q_{10}$ & $U, L, q_{9}$ & $*, L, q_{9}$ & $P, R, q_{10}$ & & \\ \hline
+            $q_{10}$ & $P, R, q_{11}$ & $0, R, q_{16}$ & $1, R, q_{10}$ & & $S_0, R, q_{14}$ & & & & \\ \hline
+            $q_{11}$ & $S_0, R, q_{11}$ & $0, R, q_{11}$ & $1, R, q_{11}$ & $P, R, q_{11}$ & $U, R, q_{11}$ & $S_0, RR, q_{12}$ & & & \\ \hline
+            $q_{12}$ & $*, L, q_{13}$ & & & & & & & & \\ \hline
+            $q_{13}$ & $1, L, q_{9}$ & & & & & & & & \\ \hline
+            $q_{14}$ & $S_0, R, q_{14}$ & $0, R, q_{14}$ & $1, R, q_{14}$ & $P, R, q_{14}$ &  & $U, R, q_{15}$ & & & \\ \hline
+            $q_{15}$ & $0, R, q_{20}$ & & & & & & & & \\ \hline
+            $q_{16}$ & $T, R, q_{11}$ & & & & & & & & \\ \hline
+            $q_{17}$ & $S_0, L, q_{17}$ & $0, L, q_{17}$ & $1, L, q_{17}$ & $P, L, q_{17}$ & $U, L, q_{17}$ & $*, L, q_{17}$ & & $S_0, R, q_{18}$ & $S, R, q_{19}$ \\ \hline
+            $q_{18}$ & $S_0, R, q_{18}$ & $0, R, q_{18}$ & $1, R, q_{18}$ & $P, R, q_{18}$ & $U, R, q_{18}$ & $*, RL, q_{9}$ & & & \\ \hline
+            $q_{19}$ & & $0, L, q_{17}$ & & & & & & & \\ \hline
+            $q_{20}$ & $*, L, q_{17}$ &  & & & & & & & \\ \hline
+        \end{longtable}
+    }
+
+    Ahora que tenemos esta máquina matemática en forma tabular lo que vamos a hacer como nos lo pide el problema es exhibir las descripciones
+    instantáneas llegar a las primeras 8 posiciones impares, entonces:
+    \begin{itemize}
+        \item Para las posiciones 0, 1 y 2
+        \[
+            0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} 1 U 0 q_{9} * \vdash^{*}
+        \]
+
+        \[
+            0S0C0C0C0C0C0C0C0C0C0C0C0C0s_{0} 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 q_{9} *
+        \]
+
+        \item Para las posiciones 2 y 3
+        \[
+            0S0C0C0C0C0C0C0C0C0C0C0C0s_{0}0s_{0} 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 q_{9} * \vdash^{*}
+        \]
+
+        \[
+            0S0C0C0C0C0C0C0C0C0C0C0C0s_{0}0s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 0 P 1 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 1 U 0 q_{9} *
+        \]
+
+        \item Como podemos ver siempre acabamos en el estado $q_9$, además de que cada vez que volvemos a calcular
+        un nuevo valor se sustituye una $C$ por $S_{0}$, por lo tanto se generaran los números fibonacci hasta la posición 15, que es justo
+        el octavo número con posición impar. Ahora bien solo para que quede claro veamos como es que se comporta está maquina cuando ya acabo de
+        sustituir todas las $C$, por lo tanto veremos como se comporta cuando ya calculo la posicón 15:
+        \[
+            0S0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 1 s_{0} 0 s_{0} \dots 1 U 0 q_{9} * \vdash^{*}
+        \]
+
+        \[
+            0q_{17}S0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 1 s_{0} 0 s_{0} \dots 1 U 0 * \vdash
+        \]
+
+        \[
+            0Sq_{19}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 1 s_{0} 0 s_{0} \dots 1 U 0 * \vdash
+        \]
+
+        \[
+            0q_{17}S0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0}0s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 0 s_{0} 1 s_{0} 1 s_{0} 1 s_{0} 0 s_{0} \dots 1 U 0 * \vdash
+        \]
+
+        Como podemos ver al haber acabado con todas las $C$, eventualmente llego a $S$, lo que lo llevo a entrar a un bucle en el que ya no hace nada,
+        más que moverse de izquierda a derecha infinitamente, así evitamos que se impriman más posiciones después de la 8va posición impar. (Nota : no anote
+        todos los 1 de la posición 15 por que son más de 600, pero espero que se entienda lo que quise mostrar).
+    \end{itemize}
+
+    Ahora vamos a hacer lo mismo pero con la notación de estados newtoniana, entonces:
+    \begin{itemize}
+        \item Para las posiciones 0, 1 y 2
+        \[
+            Comp_{t_{0}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0Cs_{0}\dots
+        \]
+        \[
+            Comp_{t_{1}} = 0q_{0}S0C0C0C0C0C0C0C0C0C0C0C0C0Cs_{0}\dots
+        \]
+        \[
+            Comp_{t_{2}} = 0Sq_{0}0C0C0C0C0C0C0C0C0C0C0C0C0Cs_{0}\dots
+        \]
+        \[
+            Comp_{t_{3}} = 0S0q_{0}C0C0C0C0C0C0C0C0C0C0C0C0Cs_{0}\dots
+        \]
+        Seguimos en el estado $q_{0}$ avanzando hacia la derecha hasta llegar a ver a el símbolo $s_{0}$:
+        \[
+            Comp_{t_{29}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0Cs_{0}q_{0}\dots
+        \]
+        \[
+            Comp_{t_{30}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0Cs_{0}q_{1}\dots
+        \]
+        \[
+            Comp_{t_{31}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0}q_{2}\dots
+        \]
+        \[
+            Comp_{t_{32}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P s_{0}q_{3}\dots
+        \]
+        \[
+            Comp_{t_{33}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} s_{0} q_{4}\dots
+        \]
+        \[
+            Comp_{t_{34}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} s_{0} q_{5}\dots
+        \]
+        \[
+            Comp_{t_{35}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} 1 s_{0} q_{6}\dots
+        \]
+        \[
+            Comp_{t_{36}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} 1 U s_{0} q_{7}\dots
+        \]
+        \[
+            Comp_{t_{37}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} 1 U 0 s_{0} q_{8}\dots
+        \]
+        \[
+            Comp_{t_{38}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} 1 U 0 * q_{9}\dots
+        \]
+
+        En este punto hemos impreso las posiciones 0 y 1, y sabemos que la 0 no debería de estar aquí pero no encontramos una forma de hacerlo
+        sin que aparecieran las posiciones pares que hay entre medio.
+        \[
+            Comp_{t_{39}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} 1 U 0 q_{9} *\dots
+        \]
+        \[
+            Comp_{t_{40}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} 1 U q_{9} 0 *\dots
+        \]
+        \[
+            Comp_{t_{41}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P 1 s_{0} 0 s_{0} 1 q_{9} U 0 *\dots
+        \]
+
+        Seguimos en el estado $q_{9}$, moviendonos hacia la izquierda hasta que encontremos un símbolo $P$:
+        \[
+            Comp_{t_{46}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 P q_{9} 1 s_{0} 0 s_{0} 1 U 0 *\dots
+        \]
+        \[
+            Comp_{t_{47}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 q_{10} s_{0} 0 s_{0} 1 U 0 *\dots
+        \]
+        \[
+            Comp_{t_{48}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} q_{10} 0 s_{0} 1 U 0 *\dots
+        \]
+        \[
+            Comp_{t_{49}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 P 0 q_{11} s_{0} 1 U 0 *\dots
+        \]
+        \[
+            Comp_{t_{50}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 P 0 s_{0} q_{11} 1 U 0 *\dots
+        \]
+        \[
+            Comp_{t_{51}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 P 0 s_{0} 1 q_{11} U 0 *\dots
+        \]
+
+        Seguimos en el estado $q_{11}$ moviendonos a la derecha hasta encontrar un símbolo $*$:
+        \[
+            Comp_{t_{54}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 P 0 s_{0} 1 U 0 * q_{11}\dots
+        \]
+        \[
+            Comp_{t_{55}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 P 0 s_{0} 1 U 0 s_{0} s_{0} s_{0} q_{12}\dots
+        \]
+        \[
+            Comp_{t_{56}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 P 0 s_{0} 1 U 0 s_{0} s_{0} q_{13} * \dots
+        \]
+        \[
+            Comp_{t_{57}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 P 0 s_{0} 1 U 0 s_{0} q_{9} 1 * \dots
+        \]
+
+        Ahora si nos fijamos bien estamos en el estado $q_{9}$, este lo que hacía era moverse a la izquierda hasta encontrar un símbolo $P$, entonces
+        hacemos eso:
+        \[
+            Comp_{t_{63}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 P q_{9} 0 s_{0} 1 U 0 s_{0} 1 * \dots
+        \]
+        \[
+            Comp_{t_{64}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 q_{10} s_{0} 1 U 0 s_{0} 1 * \dots
+        \]
+        \[
+            Comp_{t_{65}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 s_{0} q_{16} 1 U 0 s_{0} 1 * \dots
+        \]
+        \[
+            Comp_{t_{66}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 T 1 q_{11} U 0 s_{0} 1 * \dots
+        \]
+
+        Ahora parecido a el caso anterior estamos en el estado $q_{11}$, entonces vamos a avanzar hacia la derecha hasta hasta encontrar un símbolo $*$:
+        \[
+            Comp_{t_{71}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 T 1 U 0 s_{0} 1 * q_{11} \dots
+        \]
+        \[
+            Comp_{t_{72}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 T 1 U 0 s_{0} 1 s_{0} s_{0} s_{0} q_{12} \dots
+        \]
+        \[
+            Comp_{t_{73}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 T 1 U 0 s_{0} 1 s_{0} s_{0} q_{13} *  \dots
+        \]
+        \[
+            Comp_{t_{74}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 T 1 U 0 s_{0} 1 s_{0} q_{9} 1 *  \dots
+        \]
+
+        Ahora vemos que estamos en un estado $q_{9}$, pero ya no hay símbolos $P$, lo que queda es movernos a la izquierda hasta encontrar
+        un símbolo $T$, entonces:
+        \[
+            Comp_{t_{80}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 T q_{9} 1 U 0 s_{0} 1 s_{0} 1 *  \dots
+        \]
+        \[
+            Comp_{t_{81}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 q_{10} U 0 s_{0} 1 s_{0} 1 *  \dots
+        \]
+        \[
+            Comp_{t_{82}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 U q_{10} 0 s_{0} 1 s_{0} 1 *  \dots
+        \]
+        \[
+            Comp_{t_{83}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 q_{14} s_{0} 1 s_{0} 1 *  \dots
+        \]
+        \[
+            Comp_{t_{84}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} q_{14} 1 s_{0} 1 *  \dots
+        \]
+        \[
+            Comp_{t_{85}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 q_{14} s_{0} 1 *  \dots
+        \]
+
+        Como podemos ver estamos ahora en el estado $q_{14}$, en este estado solo nos movemos a la derecha hasta encontrar un símbolo $*$, entonces:
+        \[
+            Comp_{t_{88}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 * q_{14}  \dots
+        \]
+        \[
+            Comp_{t_{89}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U s_{0} q_{15}  \dots
+        \]
+        \[
+            Comp_{t_{90}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 s_{0} q_{20}  \dots
+        \]
+        \[
+            Comp_{t_{91}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 q_{17} *   \dots
+        \]
+        \[
+            Comp_{t_{92}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U q_{17} 0 *   \dots
+        \]
+        \[
+            Comp_{t_{93}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 q_{17} U 0 *   \dots
+        \]
+        \[
+            Comp_{t_{94}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} q_{17} 1 U 0 *   \dots
+        \]
+
+        Si nos fijamos bien al estar en el estado $q_{17}$, lo único que hacemos es movernos hacia la izquierda hasta encontrar un
+        símbolo $C$, entonces:
+        \[
+            Comp_{t_{106}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0C q_{17} 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 *   \dots
+        \]
+        \[
+            Comp_{t_{107}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0s_{0} 0 q_{18} s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 *   \dots
+        \]
+        \[
+            Comp_{t_{108}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0s_{0} 0 s_{0} q_{18} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 *   \dots
+        \]
+        \[
+            Comp_{t_{109}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0s_{0} 0 s_{0} 1 q_{18} s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 *   \dots
+        \]
+
+        En el estado $q_{18}$ lo que básicamante hacemos es movernos hacia la derecha hasta encontrar un símbolo $*$:
+        \[
+            Comp_{t_{122}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0s_{0} 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 * q_{18}  \dots
+        \]
+        \[
+            Comp_{t_{123}} = 0S0C0C0C0C0C0C0C0C0C0C0C0C0s_{0} 0 s_{0} 1 s_{0} 0 P 1 s_{0} 0 s_{0} 1 s_{0} 1 U 0 * q_{9}  \dots
+        \]
+
+        Y si nos damos cuenta hemos impreso la posición 2 y llegamos a el estado $q_9$ al igual que como empezamos a imprimir está posición,
+        además de que quitamos un símbolo $C$, esto lo haremos 12 veces más hasta llegar a un símbolo $S$ y entrar en un bucle infinito.
+    \end{itemize}
+
+    Y finalmente en nuestro caso los E-registros fueron bastante útiles, nos servían como una forma de marca, para saber cuando parar o
+    cambiar de estado, además también nos sirvieron como contador, creo yo que sin ellos no se puede calcular fibonacci.
 
     \section*{Problema 6}
 
