@@ -19,6 +19,7 @@
 \pgfplotsset{compat=1.18}
 \spanishdecimal{.}
 \newcommand{\vspacel}{\vspace{0.5 cm}}
+\usepackage{longtable}
 
 \title{Tarea 2: Computabilidad y Decibilidad}
 \author{Nolasco Flores Micael\\
@@ -201,6 +202,44 @@ Autómatas y Lenguajes Formales}
     si la entrada es $T_{2}=1\sqcup1\sqcup0\sqcup1$ el resultado debe ser $T_{2}=1\sqcup1\sqcup0\sqcup1F$.
 
     \subsection*{Respuesta}
+
+    Para resolver este problema ''contaremos'' E-registros, para eso, escribiremos $C$ en los registros que están después de cada 1, aunque, para 
+    tener registro del inicio de la cinta, en el primer E-registro no pondremos C, pondremos I, si la cantidad de $C$'s puestas coinciden,
+    entonces la máquina limpiara cualquier E-registro usado y regresará al espacio vacío a la derecha del último 1 y escribirá V, en el caso de 
+    que la cantidad de $C$'s no coincida, la máquina limpiará los E-registros usados y regresará al espacio vacío a la derecha del último 1 y escribirá F.
+    Después la máquina pasará a un estado que la dejará moviéndose de derecha a izquierda.
+
+    La representación tabular de esta máquina es la siguiente:
+
+    
+    \begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $q_i/S_j$ & $S_0$ & $0$ & $1$ & $C$ & $I$ \\ \hline
+    $q_{0}$ & & $0, R, q_{10}$ & $1, R, q_{1}$ & & \\ \hline
+    $q_{1}$ & $I, R, q_{2}$ & & & & \\ \hline
+    $q_{2}$ & $S_0, R, q_{2}$ & $0, R, q_{3}$ & $1, R, q_{2}$ & $C, R, q_{2}$ & $I, R, q_{2}$ \\ \hline
+    $q_{3}$ & $S_0, R, q_{4}$ & & & & \\ \hline
+    $q_{4}$ & $S_0, L, q_{11}$ & & $1, R, q_{5}$ & $C, R, q_{4}$ & \\ \hline
+    $q_{5}$ & $C, L, q_{6}$ & & & & \\ \hline
+    $q_{6}$ & $S_0, L, q_{6}$ & $0, L, q_{7}$ & $1, L, q_{6}$ & $C, L, q_{6}$ & \\ \hline
+    $q_{7}$ & $S_0, L, q_{7}$ & & $1, L, q_{7}$ & $C, R, q_{8}$ & $I, R, q_{8}$ \\ \hline
+    $q_{8}$ & & $0, R, q_{10}$ & $1, R, q_{9}$ & & \\ \hline
+    $q_{9}$ & $C, R, q_{2}$ & & & $C, R, q_{9}$ & \\ \hline
+    $q_{10}$ & $S_0, L, q_{15}$ & & $1, L, q_{11}$ & $C, R, q_{10}$ & \\ \hline
+    $q_{11}$ & $S_0, L, q_{11}$ & $0, L, q_{11}$ & $1, L, q_{11}$ & $S_0, L, q_{11}$ & $S_0, R, q_{12}$ \\ \hline
+    $q_{12}$ & $S_0, R, q_{13}$ & $0, R, q_{12}$ & $1, R, q_{12}$ & & \\ \hline
+    $q_{13}$ & $S_0, L, q_{14}$ & $0, R, q_{12}$ & $1, R, q_{12}$ & & \\ \hline
+    $q_{14}$ & $F, R, q_{19}$ & & & & \\ \hline
+    $q_{15}$ & $S_0, L, q_{15}$ & $0, L, q_{15}$ & $1, L, q_{15}$ & $S_0, L, q_{15}$ & $S_0, R, q_{16}$ \\ \hline
+    $q_{16}$ & $S_0, R, q_{17}$ & $0, R, q_{16}$ & $1, R, q_{16}$ & & \\ \hline
+    $q_{17}$ & $S_0, L, q_{18}$ & $0, R, q_{16}$ & $1, R, q_{16}$ & & \\ \hline
+    $q_{18}$ & $V, R, q_{19}$ & & & & \\ \hline
+    $q_{19}$ & $S_0, RL, q_{19}$ & & & & \\ \hline
+    \end{tabular}
+    \end{table}
 
     \section*{Problema 9}
 
